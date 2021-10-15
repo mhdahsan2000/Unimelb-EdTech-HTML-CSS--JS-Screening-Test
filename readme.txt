@@ -32,4 +32,5 @@ Functionalities that were to be added to the provided code :
     ALITER SOLUTION : Dynamic list in js with sort functionality with different ds. - list.js 
 
 Refer to the file "ed_tech_2.html" for detailed solution. 
+The folder "Challenge Question" consists of the Coding challenge requirements and question. 
 -------------------------------------------------------------------------------------------------------------------------------------------------------
