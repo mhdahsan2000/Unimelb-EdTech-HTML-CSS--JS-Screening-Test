@@ -1,5 +1,6 @@
 This repo. consists of a coding Challenge as part of Unimelb EdTech developer position. 
 I was able to pass the Screening test, it was based in HTML, CSS and JavaScript. 
+Time limit : 45 minutes 
 
 Functionalities that were to be added to the provided code : 
 
