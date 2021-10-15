@@ -14,7 +14,7 @@ Functionalities that were to be added to the provided code :
    4. Input can contain only integers, or an error will be displayed - DONE
    5.Numbers must be positive integers, or an error will be displayed - DONE
    6.Any repeated number will not be added - DONE
-   7.If possible, numbers in the list will be sorted from from lowest to highest, top to bottom. - DONE (left to right sorted)
+   7.If possible, numbers in the list will be sorted from from lowest to highest, top to bottom. - partially DONE (left to right sorted)
    8.Nothing should happen if the button is clicked while the input field is blank - Display error message with blank input - DONE 
    9. Logo position Adjustment - yet to complete 
    
