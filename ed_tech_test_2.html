@@ -1,0 +1,148 @@
+<!doctype html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Education Technologist dev skills test</title>
+    <!-- Latest compiled and minified JQuery JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <style>
+        body {
+			font-family: arial, sans-serif;
+		}
+
+		
+	</style>
+</head>
+
+<body>
+
+    <div id="instructions" style="width: 100%; padding-bottom: 10px; border-bottom: 2px solid black;">
+        <div style="width: 49%; float: left">
+            <p><strong>Item 1: Logo</strong></p>
+            <p>Remove the image of the logo on the left of the page and recreate as much of it as you can using only html and css. (Use the generic 'red', 'yellow', and 'blue' as colours)</p>
+        </div>
+        <div style="width: 49%; float: right;">
+            <p><strong>Item 2: Number list</strong></p>
+            <p>Add the following functionality to the elements on the right of the page:</p>
+            <ol>
+                <li>When a user clicks on the 'Submit' button, the content of the input field should appear in the box labelled 'Number List'.</li>
+                <li>After clicking the Submit button, the input field should go blank.</li>
+                <li>Each unique number entered will be added to the list and should appear on a new line.</li>
+                <li>Input can contain only integers, or an error will be displayed.</li>
+                <li>Numbers must be positive integers, or an error will be displayed.</li>
+                <li>Any repeated number will not be added.</li>
+                <li>If possible, numbers in the list will be sorted from from lowest to highest, top to bottom.</li>
+                <li>Nothing should happen if the button is clicked while the input field is blank.</li>
+        </div>
+        <p style="clear: both">jQuery should be loaded in the page, and you are free to use it or any other existing scripts to accomplish these tasks. You are also encouraged to search for existing code snippets online. You may hide or remove these instructions if you are clear on what is required.</p>
+    </div>
+    <div style="width: 30%; margin: 4%; float: left">
+        <!-- replace this with html and css -->
+        <img src="Flaglogo.png" style="width: 100%; height: auto" />
+    </div>
+    <div style="width: 20%; margin: 4%; float: left;">
+        <h1>Welcome</h1>
+        <p>Please enter a number.</p>
+         <!-- Multiple checks for positive integers.  -->
+        <input min="1" onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57" id="nameInput" onfocus="this.value=''" placeholder="enter your number here" onclick="powerOf(event);"type="number" required/>
+        <button id="btn_submit" style="float: right" onclick = "pushData()">Submit</button>
+         <div id="error"></div>
+    </div>
+    <div style="border: 2px solid teal; border-radius: 10px; width: 26%; margin: 3%; min-height: 150px; float: left; text-align: center;">
+        <h3>Number List:</h3>
+        <div id="nameOutput">
+            <!-- text field input goes here -->
+        </div>
+        <div class="liste" id="lists">
+        <ul class= "rq" id= "numbers" >
+        </ul>
+        </div>    
+       
+    </div>
+    <script>
+
+
+    /*
+
+    @ Author : Mohammed Ahsan Kollathodi. 
+    MY SOLUTION APPROACH : 
+    ----------------------------------------------------------------------
+
+    1. Accept the input values into an array called 'n'
+    2. If the entry is a null value or an empty field display error 
+        else : Append the appropriate input into the array. 
+        - Multiple checks done to ensure that appropriate input is entered into the array. 
+        - Entry not allowed if the input is not a number. 
+    3. Once the values are entered into the array - sort the array. 
+    4. Produce the array in the list with unique values. 
+    5. A separate functionality to ensure that the array does not consist of duplicate values. 
+    ALITER SOLUTION : Dynamic list in js with sort functionality with different ds. - list.js 
+
+    REQUIREMENTS: 
+    -----------------------------------------------------------------------------------------------------------
+   1. When a user clicks on the 'Submit' button, the content of the input field should appear in the box labelled 'Number List' - DONE
+   2. After clicking the Submit button, the input field should go blank - DONE 
+   3. Each unique number entered will be added to the list and should appear on a new line - yet to complete - appears on the same line at the moment. 
+   4. Input can contain only integers, or an error will be displayed - DONE
+   5.Numbers must be positive integers, or an error will be displayed - DONE
+   6.Any repeated number will not be added - DONE
+   7.If possible, numbers in the list will be sorted from from lowest to highest, top to bottom. - DONE (left to right sorted)
+   8.Nothing should happen if the button is clicked while the input field is blank - Display error message with blank input. 
+    */
+
+
+   // Initialized the array to store the input values. 
+    var n = [] ; 
+
+ // Function to push the data into the array and produce output in the unordered list. 
+  function pushData(){
+ // input the number from the field with id nameInput. 
+  inputText = document.getElementById('nameInput').value ;
+
+  // If the input is empty , then entry is not allowed - Display with a possible error asking the user to input a value. 
+
+  if (inputText == ""){
+    alert("Please input a value") ; 
+    return false ; 
+  }else{
+  // Input a numerical value if the field does contain some value.   
+  alert("Correct input - INPUT ADDED TO THE LIST.");
+  n.push(inputText); 
+   // sort the array . 
+  n.sort() ;
+  // Display unique the array with unique elements in the array with no repetition. 
+  document.querySelector('#lists ul').innerHTML += "<li>" + getUnique(n) + "</li>";  
+  }
+}
+
+// function to prevent duplicate entries into the array. 
+// One number will be inserted only once to the array. 
+// NO DUPLICATED ELEMENTS IN THE ARRAY OR OUTPUT. 
+function getUnique(array){
+        var uniqueArray = [] ; 
+        // Loop through array values
+        for(i=0; i < array.length; i++){
+            if(uniqueArray.indexOf(array[i]) === -1) {
+                uniqueArray.push(array[i]);
+            }
+        }
+        // return the unique . 
+        return uniqueArray;
+    }
+
+
+function powerOf(event) {
+    if (!/^\d+$/.test(document.getElementById('nameInput').value)) {
+        event.preventDefault();
+    }
+}
+
+
+
+    </script>
+</body>
+
+</html>
