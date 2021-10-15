@@ -29,3 +29,5 @@ Functionalities that were to be added to the provided code :
     5. A separate functionality to ensure that the array does not consist of duplicate values. 
     ALITER SOLUTION : Dynamic list in js with sort functionality with different ds. - list.js 
 
+Refer to the file "ed_tech_2.html" for detailed solution. 
+-------------------------------------------------------------------------------------------------------------------------------------------------------
